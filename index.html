@@ -9,6 +9,34 @@
     <title>Book library</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <header>
+        Book Library
+    </header>
+
+    <main>
+        <form action="#" class="new-book">
+            <div>
+                <label for="title">Title: </label>
+                <input id="title" type="text">
+            </div>
+
+            <div>
+                <label for="author">Author: </label>
+                <input id="author" type="text">
+            </div>
+
+            <div>
+                <label for="pages-count">Pages: </label>
+                <input id="pages-count" type="number" min="0">
+            </div>
+
+            <div>
+                <label for="read-status">Read status: </label>
+                <input id="read-status" type="checkbox">
+            </div>
+
+            <input type="submit" value="Add new book">
+        </form>
+    </main>
 </body>
 </html>
