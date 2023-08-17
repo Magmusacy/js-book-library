@@ -22,14 +22,12 @@ header {
 form.new-book {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 1fr;
     padding: 1rem;
     gap: 1rem;
     background-color: var(--theme-color);
 }
 
-form.new-book div label {
-    padding: 0.5rem;
-}
 
 form.new-book div {
     display: flex;
