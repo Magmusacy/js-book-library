@@ -73,14 +73,14 @@ form.new-book input {
     }
 }
 
-div.books-section {
+div#books-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     padding: 1rem;
     gap: 1rem;
 }
 
-div.books-section * {
+div#books-section * {
     margin: 0;
 }
 
