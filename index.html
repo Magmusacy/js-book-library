@@ -17,26 +17,29 @@
         <form action="#" class="new-book">
             <div>
                 <label for="title">Title: </label>
-                <input id="title" type="text">
+                <input id="title" type="text" required>
             </div>
 
             <div>
                 <label for="author">Author: </label>
-                <input id="author" type="text">
+                <input id="author" type="text" required>
             </div>
 
             <div>
                 <label for="pages-count">Pages: </label>
-                <input id="pages-count" type="number" min="0">
+                <input id="pages-count" type="number" min="0" required>
             </div>
 
             <div>
                 <label for="read-status">Read status: </label>
-                <input id="read-status" type="checkbox">
+                <input id="read-status" type="checkbox" required>
             </div>
 
             <input type="submit" value="Add new book">
         </form>
+
+        <div id="books-section">
+        </div>
     </main>
 </body>
 </html>
