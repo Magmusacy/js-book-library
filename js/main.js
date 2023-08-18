@@ -23,10 +23,12 @@ function displayBooks() {
     for (const [index, book] of myLibrary.entries()) {
         const newBook = 
             `<section class="book-card">
-                <h2>Title: ${book.title}</h2>
-                <p>Author: ${book.author}</p>
-                <p>Pages: ${book.pagesCount}</p>
-                <p>Read status: ${book.readInfo()}</p>
+                <div>
+                    <h2>Title: ${book.title}</h2>
+                    <p>Author: ${book.author}</p>
+                    <p>Pages: ${book.pagesCount}</p>
+                    <p>Read status: ${book.readInfo()}</p>
+                </div>
                 <div class="buttons">
                     <button class="change-read-button" data-book-id=${index}>Change read status</button>
                     <button class="delete-button" data-book-id=${index}>Delete</button>
