@@ -32,7 +32,7 @@ function displayBooks() {
                     <button class="delete-button" data-book-id=${index}>Delete</button>
                 </div>
             </section>`;
-        booksSection.innerHTML += newBook;
+        booksSection.insertAdjacentHTML("beforeend", newBook);
         initializeBookButtons(index);
     }
 };
