@@ -7,8 +7,11 @@ function Book(title, author, pagesCount, readStatus) {
     this.author = author;
     this.pagesCount = pagesCount;
     this.readStatus = readStatus;
-    this.readInfo = () => this.readStatus ? 'Read' : 'Not read';
 }
+
+Book.prototype.readInfo = function() {
+    return this.readStatus ? 'Read' : 'Not read'
+};
 
 function addBookToLibrary(title, author, pagesCount, readStatus) {
     const newBook = new Book(title, author, pagesCount, readStatus);
@@ -25,20 +28,36 @@ function displayBooks() {
                 <p>Pages: ${book.pagesCount}</p>
                 <p>Read status: ${book.readInfo()}</p>
                 <div class="buttons">
+                    <button class="change-read-button" data-book-id=${index}>Change read status</button>
                     <button class="delete-button" data-book-id=${index}>Delete</button>
                 </div>
             </section>`;
         booksSection.innerHTML += newBook;
-        enableDeleteButton(index);
+        initializeBookButtons(index);
     }
 };
 
-function enableDeleteButton(bookIndex) {
-    const button = document.querySelector(`[data-book-id="${bookIndex}"]`);
+function initializeBookButtons(bookIndex) {
+    const deleteButton = document.querySelector(`.delete-button[data-book-id="${bookIndex}"]`);
+    const changeReadStatusButton = document.querySelector(`.change-read-button[data-book-id="${bookIndex}"]`);
+    initializeDeleteButton(deleteButton, bookIndex);
+    initializeChangeReadStatusButton(changeReadStatusButton, bookIndex);
+};
+
+function initializeDeleteButton(button, bookIndex) {
     button.addEventListener('click', function() {
         myLibrary.splice(bookIndex, 1);
         displayBooks();
-    })
+    });
+};
+
+function initializeChangeReadStatusButton(button, bookIndex) {
+    const book = myLibrary[bookIndex];
+    button.addEventListener('click', function() {
+        book.readStatus = book.readStatus ? false : true;
+        console.log(book);
+        displayBooks();
+    });
 };
 
 newBookForm.addEventListener('submit', function(event) {
