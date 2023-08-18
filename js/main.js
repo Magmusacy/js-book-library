@@ -17,16 +17,28 @@ function addBookToLibrary(title, author, pagesCount, readStatus) {
 
 function displayBooks() {
     booksSection.innerHTML = "";
-    for (let book of myLibrary) {
+    for (const [index, book] of myLibrary.entries()) {
         const newBook = 
             `<section class="book-card">
                 <h2>Title: ${book.title}</h2>
                 <p>Author: ${book.author}</p>
                 <p>Pages: ${book.pagesCount}</p>
                 <p>Read status: ${book.readInfo()}</p>
+                <div class="buttons">
+                    <button class="delete-button" data-book-id=${index}>Delete</button>
+                </div>
             </section>`;
         booksSection.innerHTML += newBook;
+        enableDeleteButton(index);
     }
+};
+
+function enableDeleteButton(bookIndex) {
+    const button = document.querySelector(`[data-book-id="${bookIndex}"]`);
+    button.addEventListener('click', function() {
+        myLibrary.splice(bookIndex, 1);
+        displayBooks();
+    })
 };
 
 newBookForm.addEventListener('submit', function(event) {

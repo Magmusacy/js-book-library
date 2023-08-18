@@ -99,3 +99,20 @@ section.book-card h2 {
 section.book-card p {
     margin: 8px 0 8px 0;
 }
+
+section.book-card .buttons {
+    display: flex;
+    justify-content: end;
+}
+
+section.book-card .buttons .delete-button {
+    background-color: rgb(255, 66, 66);
+    border: 0;
+    border-radius: 6px;
+    padding: 0.5rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+section.book-card .buttons .delete-button:hover {
+    background-color: rgb(255, 110, 110);
+}
