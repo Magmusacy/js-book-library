@@ -2,15 +2,17 @@ const myLibrary = [];
 const booksSection = document.querySelector('#books-section');
 const newBookForm = document.querySelector('#add-book');
 
-function Book(title, author, pagesCount, readStatus) {
-    this.title = title;
-    this.author = author;
-    this.pagesCount = pagesCount;
-    this.readStatus = readStatus;
-}
+class Book {
+    constructor(title, author, pagesCount, readStatus) {
+        this.title = title;
+        this.author = author;
+        this.pagesCount = pagesCount;
+        this.readStatus = readStatus;
+    };
 
-Book.prototype.readInfo = function() {
-    return this.readStatus ? 'Read' : 'Not read'
+    readInfo() {
+        return this.readStatus ? 'Read' : 'Not read'
+    };     
 };
 
 function addBookToLibrary(title, author, pagesCount, readStatus) {
